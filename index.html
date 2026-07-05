@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>LLM Output Arbitration System | Live Demo</title>
-<meta name="description" content="Three specialized critics on three different models evaluate any LLM output in parallel; an adjudicator resolves their disagreements into one confidence-scored verdict.">
+<meta name="description" content="Three specialized critics on three different models evaluate any LLM output in parallel; an adjudicator resolves their disagreements into one confidence scored verdict.">
 <style>
 :root {
   --accent: #c17bff;
@@ -120,7 +120,7 @@ footer a { color: var(--accent); text-decoration: none; }
 <header>
   <div class="kicker">AI models auditing each other</div>
   <h1>LLM Output Arbitration System</h1>
-  <p class="tagline">Three specialized critics on three different models evaluate any LLM output in parallel; an adjudicator resolves their disagreements into one confidence-scored verdict.</p>
+  <p class="tagline">Three specialized critics on three different models evaluate any LLM output in parallel; an adjudicator resolves their disagreements into one confidence scored verdict.</p>
   <div class="cta">
     <a class="primary" href="#demo">Run the live demo</a>
     <a class="ghost" href="#architecture">Architecture</a>
@@ -144,9 +144,9 @@ footer a { color: var(--accent); text-decoration: none; }
   <div class="arch">
     <div class="step"><div class="n">1</div><div><b>Three critics, three models</b><p>Factual accuracy (GPT-4o slot), logical consistency (Claude slot), completeness (local Llama slot). Different models on purpose: shared weights share blind spots.</p></div></div>
     <div class="step"><div class="n">2</div><div><b>Structured critiques</b><p>Every critic returns the same Pydantic shape: score 1 to 5, issues with quote, problem, and severity, plus its own confidence.</p></div></div>
-    <div class="step"><div class="n">3</div><div><b>Parallel fan-out</b><p>Critics run concurrently with graceful degradation; a failed critic lowers confidence for its dimension instead of killing the verdict.</p></div></div>
+    <div class="step"><div class="n">3</div><div><b>Parallel fan out</b><p>Critics run concurrently with graceful degradation; a failed critic lowers confidence for its dimension instead of killing the verdict.</p></div></div>
     <div class="step"><div class="n">4</div><div><b>Disagreement detection</b><p>Score spreads, lone findings, and severity gaps are flagged; they are the most valuable signal in the system.</p></div></div>
-    <div class="step"><div class="n">5</div><div><b>Evidence-based adjudication</b><p>Critical findings stand on their quoted evidence; uncorroborated minor flags are dismissed with reasoning. All-clean reports short-circuit to a high-confidence pass.</p></div></div>
+    <div class="step"><div class="n">5</div><div><b>Evidence based adjudication</b><p>Critical findings stand on their quoted evidence; uncorroborated minor flags are dismissed with reasoning. All clean reports short circuit to a high confidence pass.</p></div></div>
   </div>
 </section>
 
@@ -326,8 +326,8 @@ if (typeof THREE === 'undefined') {
         { dim: 'logic', model: 'claude slot', score: 5, finding: null },
         { dim: 'completeness', model: 'llama slot', score: 5, finding: null }],
       verdict: { score: 10, conf: 0.95, note:
-        'All critics clean; adjudicator short-circuited to a'
-        + ' high-confidence pass.' } } };
+        'All critics clean; adjudicator short circuited to a'
+        + ' high confidence pass.' } } };
   var quote = el('div');
   quote.style.cssText = 'border-left:3px solid ' + ACCENT + ';padding:'
     + '10px 16px;color:#b9c3f5;font-size:14px;margin-bottom:16px;'
